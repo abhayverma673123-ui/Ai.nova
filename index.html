@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Nova - AI Tools</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f8ff;color:#172554}
+header{background:white;padding:20px;text-align:center;border-bottom:1px solid #ddd}
+header h2{margin:0;color:#2563eb}
+.hero{text-align:center;padding:40px 18px}
+h1{font-size:36px;margin-bottom:10px}
+.hero p{color:#64748b;line-height:1.6}
+input{width:100%;max-width:450px;padding:14px;border:1px solid #ccd8ef;border-radius:12px;font-size:16px}
+main{max-width:850px;margin:auto;padding:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
+.card{background:white;padding:20px 14px;border:1px solid #e0e8f5;border-radius:16px}
+.card h3{margin:8px 0}
+.card p{font-size:13px;color:#64748b;line-height:1.5}
+a{display:inline-block;color:#2563eb;text-decoration:none;font-weight:bold;font-size:14px}
+footer{text-align:center;padding:30px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<header><h2>✦ AI NOVA</h2></header>
+<section class="hero">
+<h1>Discover <span style="color:#2563eb">AI Tools</span></h1>
+<p>Find smart tools for writing, images, research and coding.</p>
+<input id="search" placeholder="Search AI tools..." oninput="filterTools()">
+</section>
+<main>
+<div class="grid" id="tools">
+<div class="card"><div>🤖</div><h3>ChatGPT</h3><p>Write, learn and explore ideas.</p><a href="https://chatgpt.com/">Open Tool ↗</a></div>
+<div class="card"><div>✨</div><h3>Gemini</h3><p>Ask questions and get help.</p><a href="https://gemini.google.com/">Open Tool ↗</a></div>
+<div class="card"><div>🎨</div><h3>Canva</h3><p>Create designs and graphics.</p><a href="https://www.canva.com/">Open Tool ↗</a></div>
+<div class="card"><div>🧠</div><h3>Claude</h3><p>Writing and coding assistance.</p><a href="https://claude.ai/">Open Tool ↗</a></div>
+<div class="card"><div>🔎</div><h3>Perplexity</h3><p>Explore research and answers.</p><a href="https://www.perplexity.ai/">Open Tool ↗</a></div>
+<div class="card"><div>💻</div><h3>Replit</h3><p>Build and experiment with code.</p><a href="https://replit.com/">Open Tool ↗</a></div>
+</div>
+<p id="empty" style="display:none;text-align:center">No tools found.</p>
+</main>
+<footer>© <span id="year"></span> AI Nova · Discover more with AI</footer>
+<script>
+function filterTools(){
+const q=document.getElementById('search').value.toLowerCase();
+let count=0;
+document.querySelectorAll('.card').forEach(card=>{
+const show=card.innerText.toLowerCase().includes(q);
+card.style.display=show?'block':'none';
+if(show)count++;
+});
+document.getElementById('empty').style.display=count?'none':'block';
+}
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
